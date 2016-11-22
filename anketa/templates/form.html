@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<p><h1>Анкета "Список Сводеша"</h1></p>
+<p><h2>Список страниц на этом сайте:</h2></p>
+<ul>
+    {% for name, url in urls.items() %}
+    <li><a href="{{ url }}">{{ name }}</a></li>
+    {% endfor %}
+</ul>
+<form action="/">
+    <label>Как вас зовут? <input type="text" name="name"> </label><br>
+	<label>Какой ваш родной язык? <input type="text" name="lang"> </label><br>
+	<p>Переведите на ваш язык следующие слова всеми возможными способами:</p>
+	<label>Мама <input type="text" name="mother"> </label><br>
+	<label>Папа <input type="text" name="father"> </label><br>
+	<label>Солнце <input type="text" name="sun"> </label><br>
+    <p><input type="submit" value="Отправить"></p>
+</form>
+{% endblock %}
