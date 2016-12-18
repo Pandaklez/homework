@@ -13,7 +13,6 @@ def openfile():
     for line in s:
         mm = re.sub('{.*?}', '', line)
         j.append(mm)
-#    print(j)
     return j
 
 def makewords(s):
@@ -25,11 +24,9 @@ def makewords(s):
             word = word.strip(' <>/\'#№~\n\t[],.;:!?"{}*+_-()1234567890=')
             if word != '':
                 s1.append(word)
-#    print(s1)
     return s1
 
 def makelemmas(s1):
-#    print(s1)
     os.system('C:\\Annet\\mystem -nd C:\\Annet\\annak.txt C:\\Annet\\annak_lemma.txt')
     f = open('C:\\Annet\\annak_lemma.txt', 'r', encoding = 'UTF-8')
     ms = f.read()
@@ -37,7 +34,6 @@ def makelemmas(s1):
     tables(s1)
     res = lemmas(ms)
     zweitable(res, s1)
-#    print(type(ms))
     return ms
 
 def lemmas(ms):
@@ -79,7 +75,6 @@ def zweitable(res, s1):
         d[wr] = wr2
     lemmaset = set(lemma)
     lemma = list(lemmaset)
-#    print(res)
     f = open('DB.txt', 'a', encoding = 'UTF-8')
     i = 1
     k = 0
@@ -87,7 +82,6 @@ def zweitable(res, s1):
     for el in s1:
         elle = d[el]
         k = lemma.index(elle) + 1
-#        print(elle, str(k))
         punc2 = ''
         f.write('insert into Words (wordform, punc1, punc2, number_in_text, id_table2) values (\''\
                 + el +'\', \'\',\'' + punc2 + '\','+ str(i) +','+ str(k) +');\n')
@@ -117,4 +111,3 @@ def main():
 
 if __name__ == '__main__':
     app.run(debug = True)
-#    main()
