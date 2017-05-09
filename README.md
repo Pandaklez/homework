@@ -1,6 +1,7 @@
 # homework
 
-# Последнее домашнее задание про Matplotlib + VK в папке VK_api
+# Бот для телеграма лежит в папке botik. Его username - @ConterWords_bot
+# Домашнее задание про Matplotlib + VK в папке VK_api
 
 Домашка про базу данных в папке text2sql. karenina.txt - это текст, на котором можно быстро проверить работу программы
 
