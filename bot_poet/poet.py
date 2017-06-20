@@ -51,7 +51,9 @@ def cant(message):
 def make_request(kw):
     kw = kw.lower()
     kw = kw.strip(',.<>?/\'":;#№!~\n\t[]{}*+-_()1234567890=')
-    key_word = pars.quote(kw)
+    morph = MorphAnalyzer()
+    kw_norm = morph.parse(kw)[0].normal_form
+    key_word = pars.quote(kw_norm)
     req_url = "http://search2.ruscorpora.ru/search.xml?sort=gr_created&out=normal&dpp=10&spd=10&env=alpha&mycorp=&mysent=&mysize=&mysentsize=&mydocsize=&text=lexgramm&mode=poetic&ext=10&nodia=1&parent1=0&level1=0&lex1="\
               + str(key_word) + "&gramm1=&flags1=&sem1=&expand=full"
     f_html = ur.urlopen(req_url)
